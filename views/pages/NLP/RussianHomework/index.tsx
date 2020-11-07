@@ -2,6 +2,14 @@ import { observer } from 'mobx-react-lite';
 import React, { useState } from 'react';
 import { Page, Title, Switch, SwitchItem } from '@components';
 
+const switchItems = [
+    'Превью',
+    'Код',
+    'Данные',
+    'Ссылки',
+    'Ссылки',
+];
+
 const NlpRussianHomework: React.FC = observer(() => {
     const [content, setContent] = useState(null);
 
@@ -9,10 +17,9 @@ const NlpRussianHomework: React.FC = observer(() => {
         <Page>
             <Title>Домашка по русскому</Title>
             <Switch>
-                <SwitchItem active onClick={() => setContent('Превью')} value="Превью" />
-                <SwitchItem onClick={() => setContent('Код')} value="Код" />
-                <SwitchItem onClick={() => setContent('Данные')} value="Данные" />
-                <SwitchItem onClick={() => setContent('Ссылки')} value="Ссылки" />
+                {switchItems.map((it, i) => (
+                    <SwitchItem onClick={() => setContent(it)} value={it} active={i === 0} key={Math.random()} />
+                ))}
             </Switch>
             {content}
         </Page>
