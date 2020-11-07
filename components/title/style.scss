@@ -1,0 +1,8 @@
+@use '~@assets/Constants.scss';
+
+.page__title {
+  border-bottom: 2px solid Constants.$color-dark-gray;
+  padding-bottom: Constants.$page-component-gap;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}

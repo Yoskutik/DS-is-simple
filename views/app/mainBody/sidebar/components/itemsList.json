@@ -1,0 +1,20 @@
+[
+  {
+    "title": "NLP",
+    "icon": "NLPIcon",
+    "list": {
+      "Домашка по русскому": "/NLP/Russian-homework"
+    }
+  },
+  {
+    "title": "О проекте",
+    "icon": "AboutIcon",
+    "toBottom": true,
+    "href": "/About"
+  },
+  {
+    "title": "Авторы",
+    "icon": "AuthorsIcon",
+    "href": "/Authors"
+  }
+]

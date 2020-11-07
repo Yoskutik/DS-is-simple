@@ -1,0 +1,10 @@
+@use '~@assets/Constants.scss';
+
+.tooltip {
+  max-width: Constants.$tooltip-max-width;
+  background: Constants.$color-light-blue;
+  border: 2px solid Constants.$color-blue;
+  box-shadow: 0 0 5px black;
+  position: absolute;
+  padding: 0.5rem;
+}

@@ -1,0 +1,6 @@
+@use '~@assets/Constants.scss';
+
+.page__switch {
+  margin-bottom: Constants.$page-component-gap;
+  display: flex;
+}

@@ -1,0 +1,70 @@
+@use '~@assets/Constants.scss';
+
+.sidebar {
+  background: Constants.$color-dark-gray;
+  color: Constants.$color-light-gray;
+  flex: 1 0 Constants.$sidebar-width;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding: 1.5rem 1rem;
+  position: relative;
+  display: flex;
+  height: 100%;
+
+  &.toggled {
+    flex-basis: 3.5rem;
+
+    .sidebar__toggle_btn:before {
+      border-left: 0.8rem solid Constants.$color-dark-white;
+      border-right: none;
+    }
+
+    .sidebar__slider {
+      cursor: initial;
+    }
+  }
+
+  &__toggle {
+    justify-content: flex-end;
+    margin-bottom: 20px;
+    display: flex;
+
+    &_btn {
+      border: 2px solid Constants.$color-dark-white;
+      background: transparent;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      height: 1.5rem;
+      display: flex;
+      width: 1.5rem;
+
+      &:before {
+        border-right: 0.8rem solid Constants.$color-dark-white;
+        border-bottom: 0.5rem solid transparent;
+        border-top: 0.5rem solid transparent;
+        display: block;
+        content: '';
+      }
+
+      &:hover {
+        background: transparentize(Constants.$color-light-gray, 0.1%);
+
+        &:before {
+          border-right-color: Constants.$color-black;
+          border-left-color: Constants.$color-black;
+        }
+      }
+    }
+  }
+
+  &__slider {
+    border-right: 3px solid Constants.$color-dark-white;
+    position: absolute;
+    cursor: col-resize;
+    width: 5px;
+    bottom: 0;
+    right: 0;
+    top: 0;
+  }
+}

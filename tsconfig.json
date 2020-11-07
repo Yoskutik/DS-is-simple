@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "module": "es2020",
+    "target": "es6",
+    "jsx": "react",
+    "allowJs": true,
+    "sourceMap": true,
+    "moduleResolution": "node",
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "resolveJsonModule": true,
+    "baseUrl": "./",
+    "paths": {
+      "@components*": ["components/*"],
+      "@components": ["components"],
+      "@utils/*": ["utils/*"],
+      "@pages/*": ["views/pages/*"]
+    }
+  },
+  "include": ["./**/*"],
+  "exclude": [
+    "node_modules/**/*",
+    "app/**/*"
+  ]
+}

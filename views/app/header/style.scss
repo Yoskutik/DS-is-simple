@@ -1,0 +1,14 @@
+@use '~@assets/Constants.scss';
+
+.app__header {
+  padding: 1rem 1.2rem;
+  background: Constants.$color-blue;
+  color: Constants.$color-white;
+  border-bottom: 3px solid Constants.$color-dark-white;
+
+  &_title {
+    margin: 0;
+    font-size: 1rem;
+    text-transform: uppercase;
+  }
+}

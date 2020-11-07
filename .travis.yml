@@ -1,0 +1,27 @@
+language: node_js
+node_js:
+  - '12'
+
+cache: npm
+
+branches:
+  only:
+    - master
+
+script:
+  - npm test
+  - npm run build
+
+stages:
+  - name: deploy
+    if: branch = master
+
+deploy:
+  provider: pages
+  skip_cleanup: true
+  local_dir: ./app
+  github_token: $GITHUB_TOKEN
+  keep_history: true
+  repo: yoskutik/yoskutik.github.io
+  on:
+    branch: master

@@ -1,0 +1,25 @@
+@use '~@assets/Constants.scss';
+
+.app__footer {
+  padding: 0.7rem 1.2rem;
+  background: Constants.$color-black;
+  color: Constants.$color-white;
+  border-top: 3px solid Constants.$color-dark-white;
+  display: flex;
+  justify-content: flex-end;
+  font-size: 0.9rem;
+  position: relative;
+
+  &_licence {
+    margin-right: 0.5rem;
+  }
+
+  &_author {
+    text-decoration: none;
+    color: Constants.$color-white;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

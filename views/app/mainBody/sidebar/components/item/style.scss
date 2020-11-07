@@ -1,0 +1,91 @@
+@use '~@assets/Constants.scss';
+
+.sidebar {
+  &__item {
+    transition-duration: 0.5s;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    max-height: 1.5rem;
+    padding: 5px 10px;
+    overflow: hidden;
+    cursor: pointer;
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    &:nth-last-child(2) {
+      margin: 0;
+    }
+
+    &:hover {
+      background: lighten(Constants.$color-black, 5%);
+    }
+
+    &.to-bottom {
+      position: relative;
+      overflow: initial;
+      margin-top: auto;
+
+      &:before {
+        border-top: 2px solid lighten(Constants.$color-black, 5%);
+        position: absolute;
+        display: block;
+        content: '';
+        width: 105%;
+        left: -2.5%;
+        top: -12px;
+      }
+    }
+
+    &_title {
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+      font-size: 1rem;
+      margin: 0;
+    }
+
+    &_list {
+      padding-left: 1.5rem;
+      font-size: 1rem;
+      margin: 5px 0;
+
+      li {
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+
+    &_icon {
+      margin-right: 10px;
+      flex-shrink: 0;
+    }
+
+    &_header {
+      align-items: center;
+      display: flex;
+    }
+  }
+
+  &.toggled {
+    .sidebar__item {
+      padding-right: 0;
+      padding-left: 0;
+
+      &_icon {
+        margin: 0;
+      }
+    }
+
+    .to-bottom:before {
+      content: none;
+    }
+  }
+}

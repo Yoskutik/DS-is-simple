@@ -1,0 +1,19 @@
+@use '~@assets/Constants.scss';
+
+.page__switch_item {
+  color: Constants.$color-blue;
+  margin-right: 0.5rem;
+  border-radius: 5px;
+  padding: 2px 10px;
+  cursor: pointer;
+
+  &.active {
+    background: Constants.$color-blue;
+    color: Constants.$color-white;
+  }
+
+  &:hover {
+    background: lighten(Constants.$color-blue, 10%);
+    color: Constants.$color-white;
+  }
+}
