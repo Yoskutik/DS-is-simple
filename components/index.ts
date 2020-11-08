@@ -4,3 +4,6 @@ export * from './text';
 export * from './tooltip';
 export * from './switch';
 export * from './spinner';
+export * from './dataTable';
+export * from './button';
+export * from './container';

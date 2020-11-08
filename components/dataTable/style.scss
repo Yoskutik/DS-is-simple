@@ -1,0 +1,47 @@
+@use '~@assets/Constants.scss';
+
+.page__data-table {
+  position: relative;
+  overflow-x: auto;
+  max-width: 100%;
+
+  &_indices {
+    position: absolute;
+    background: white;
+    z-index: 1;
+    left: 0;
+
+    td, th {
+      &:first-child {
+        border-right: 1px solid Constants.$color-dark-gray;
+        font-style: italic;
+      }
+    }
+  }
+
+  &_indices, &_data {
+    border-collapse: collapse;
+
+    td, th {
+      padding: 0.5rem 1rem;
+    }
+
+    td:nth-child(n + 2) {
+      text-align: center;
+    }
+
+    tr {
+      border-bottom: 1px solid Constants.$color-dark-gray;
+    }
+
+    tbody tr:last-child {
+      border-bottom: none;
+    }
+  }
+
+  &_data {
+    tr:hover {
+      background-color: Constants.$color-dark-white;
+    }
+  }
+}

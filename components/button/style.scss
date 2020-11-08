@@ -1,0 +1,21 @@
+@use '~@assets/Constants.scss';
+
+.page__button {
+  text-decoration: none;
+
+  button {
+    background-color: Constants.$color-light-blue;
+    color: Constants.$color-white;
+    padding: 0.3rem 0.5rem;
+    align-items: center;
+    cursor: pointer;
+    display: flex;
+  }
+
+  &_icon {
+    border-left: 1px solid Constants.$color-dark-white;
+    fill: Constants.$color-white;
+    padding-left: 0.3rem;
+    margin-left: 0.3rem;
+  }
+}

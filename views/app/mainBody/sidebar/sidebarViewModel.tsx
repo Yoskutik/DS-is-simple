@@ -7,13 +7,15 @@ export const SidebarContext = React.createContext<Partial<SidebarViewModel>>(nul
 export default class SidebarViewModel {
     readonly minWidth = 200;
 
-    readonly maxWidth = 500;
+    readonly maxWidth = Math.min(500, window.innerWidth / 3);
+
+    private isMobile: boolean = null;
 
     @observable
     public dragged = false;
 
     @observable
-    public width: number | null = null;
+    public width: number = null;
 
     @observable
     public toggled = false;
@@ -29,7 +31,7 @@ export default class SidebarViewModel {
     };
 
     public onSliderMouseDown = (): void => {
-        if (this.toggled) return;
+        if (this.toggled || this.isMobile) return;
         const onMouseUp = (): void => {
             document.removeEventListener('mousemove', this.onMouseMove);
             document.removeEventListener('mouseup', onMouseUp);
@@ -43,7 +45,14 @@ export default class SidebarViewModel {
 
     constructor() {
         this.toggled = Storage.get<boolean>(Storage.Keys.sidebarToggled) || false;
-        this.width = this.toggled ? null : Storage.get<number>(Storage.Keys.sidebarWidth);
+
+        if (window.innerWidth < 550) {
+            this.isMobile = true;
+            this.width = this.toggled ? null : window.innerWidth;
+        } else {
+            this.width = this.toggled ? null : Storage.get<number>(Storage.Keys.sidebarWidth);
+            this.width = this.width > this.maxWidth ? this.maxWidth : this.width;
+        }
 
         window.addEventListener('beforeunload', () => {
             Storage.set(Storage.Keys.sidebarWidth, this.width);
@@ -54,6 +63,17 @@ export default class SidebarViewModel {
     @action
     public onToggleBtnClick = (): void => {
         this.toggled = !this.toggled;
-        this.width = this.toggled ? null : Storage.get<number>(Storage.Keys.sidebarWidth);
+        if (this.isMobile) {
+            this.width = this.toggled ? null : window.innerWidth;
+        } else {
+            this.width = this.toggled ? null : Storage.get<number>(Storage.Keys.sidebarWidth);
+        }
+    };
+
+    @action
+    public onLinkClick = (): void => {
+        if (this.isMobile && !this.toggled) {
+            this.onToggleBtnClick();
+        }
     };
 }

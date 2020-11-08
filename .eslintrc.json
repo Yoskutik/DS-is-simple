@@ -53,6 +53,7 @@
             "functions": "always-multiline",
             "imports": "always-multiline"
         }],
+        "quote-props": ["error", "as-needed"],
         "import/order": ["error", {
             "pathGroups": [{
                 "pattern": "@*/**",

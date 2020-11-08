@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 const HtmlPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const path = require('path');
@@ -70,13 +71,16 @@ module.exports = (env = {}, argv = {}) => {
                     loader: 'sass-loader',
                 }],
             }, {
-                test: /\.(ttf)$/,
+                test: /\.(ttf|csv)$/,
                 loader: 'file-loader',
                 options: {
                     publicPath: '/static/assets/',
                     outputPath: './static/assets',
                     name: `${isDev ? '[name]' : '[contenthash]'}.[ext]`,
                 },
+            }, {
+                test: /\.(tsv)$/,
+                loader: 'csv-loader',
             }],
         },
         plugins: [
