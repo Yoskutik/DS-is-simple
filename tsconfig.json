@@ -11,10 +11,11 @@
     "resolveJsonModule": true,
     "baseUrl": "./",
     "paths": {
-      "@components*": ["components/*"],
       "@components": ["components"],
+      "@components/icons": ["components/icons"],
       "@utils/*": ["utils/*"],
-      "@pages/*": ["views/pages/*"]
+      "@pages/*": ["views/pages/*"],
+      "@assets/*": ["assets/*"]
     }
   },
   "include": ["./**/*"],
