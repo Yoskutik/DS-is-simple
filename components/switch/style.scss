@@ -2,5 +2,18 @@
 
 .page__switch {
   margin-bottom: Constants.$page-component-gap;
+  flex-wrap: wrap;
   display: flex;
+  gap: 0.5rem;
+}
+
+@media screen and (max-width: Constants.$switch-max-width) {
+  .page__switch {
+    border: 1px solid Constants.$color-dark-gray;
+    max-height: calc(1rem + 9px);
+    transition-duration: 0.5s;
+    border-radius: 5px;
+    overflow: hidden;
+    gap: initial;
+  }
 }
