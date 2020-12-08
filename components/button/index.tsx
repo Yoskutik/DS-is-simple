@@ -5,15 +5,16 @@ import './style.scss';
 interface IButton {
     download?: boolean,
     href?: string,
+    onClick?: (evt?: React.MouseEvent) => void,
 }
 
 export const Button: React.FC<IButton> = props => (
     <a className="page__button" href={props.href} download={props.download}>
-        <button>
+        <button onClick={props.onClick}>
             <span>
                 {props.children}
             </span>
-            <DownloadIcon className="page__button_icon" size="1rem"/>
+            {props.download && <DownloadIcon className="page__button_icon" size="1rem"/> }
         </button>
     </a>
 );

@@ -1,9 +1,11 @@
 import { observer } from 'mobx-react-lite';
 import React, { useState } from 'react';
-import { Page, Title, Switch, SwitchItem } from '@components';
+import {
+    Page, Title, Switch, SwitchItem, LoadingSuspense,
+} from '@components';
 
 const Preview = React.lazy(() => import('./preview'));
-const Data = React.lazy(() => import('./data'));
+const Data = React.lazy(async () => import('./data'));
 
 const NlpRussianHomework: React.FC = observer(() => {
     const [Content, setContent] = useState<React.FC>(Preview);
@@ -16,9 +18,9 @@ const NlpRussianHomework: React.FC = observer(() => {
                 <SwitchItem onClick={() => setContent(Data)} value="Код" />
                 <SwitchItem onClick={() => setContent(React.Fragment)} value="Данные" />
             </Switch>
-            <React.Suspense fallback={123}>
+            <LoadingSuspense>
                 <Content />
-            </React.Suspense>
+            </LoadingSuspense>
         </Page>
     );
 });

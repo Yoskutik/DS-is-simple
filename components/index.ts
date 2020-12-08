@@ -7,3 +7,4 @@ export * from './spinner';
 export * from './dataTable';
 export * from './button';
 export * from './container';
+export * from './loadingSuspense';

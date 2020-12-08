@@ -1,6 +1,6 @@
 import React from 'react';
 import { HashRouter, Redirect, Route, Switch } from 'react-router-dom';
-import { Spinner } from '@components';
+import { LoadingSuspense } from '@components';
 import Storage from '@utils/storage';
 import Sidebar from './sidebar';
 import './style.scss';
@@ -16,14 +16,14 @@ const MainBody: React.FC = () => (
         <HashRouter hashType="noslash">
             <Sidebar/>
             <div className="app__main_container">
-                <React.Suspense fallback={ <Spinner className="app__main_spinner" size={96} /> }>
+                <LoadingSuspense>
                     <Switch>
                         {Object.keys(pages).map(path => (
                             <Route exact path={path} component={pages[path]} key={Math.random()} />
                         ))}
                         <Redirect exact from="/" to={Storage.get(Storage.Keys.lastVisitedPage) || '/About'} />
                     </Switch>
-                </React.Suspense>
+                </LoadingSuspense>
             </div>
         </HashRouter>
     </main>
