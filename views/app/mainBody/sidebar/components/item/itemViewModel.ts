@@ -3,7 +3,6 @@ import React from 'react';
 import IItem from './iItem';
 
 export default class ItemViewModel {
-    @observable
     public maxHeight = null;
 
     @action

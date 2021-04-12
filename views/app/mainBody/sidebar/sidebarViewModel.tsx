@@ -11,13 +11,10 @@ export default class SidebarViewModel {
 
     private isMobile: boolean = null;
 
-    @observable
     public dragged = false;
 
-    @observable
     public width: number = null;
 
-    @observable
     public toggled = false;
 
     private onMouseMove: EventListener = (evt: MouseEvent): void => {

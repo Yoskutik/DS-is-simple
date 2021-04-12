@@ -2,7 +2,6 @@ import { observable } from 'mobx';
 import React from 'react';
 
 export default class SwitchViewModel {
-    @observable
     public toggled: boolean = null;
 
     public onItemClick = (evt: React.MouseEvent): void => {

@@ -1,7 +1,6 @@
 import { action, observable } from 'mobx';
 
 export default class FooterViewModel {
-    @observable
     public showLicenceTooltip = false;
 
     @action

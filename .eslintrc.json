@@ -41,6 +41,9 @@
         "func-names": "off",
         "linebreak-style": "off",
         "no-plusplus": "off",
+        "no-param-reassign": ["error", {
+            "props": false
+        }],
         "max-len": ["error", {"code":  120}],
         "max-lines": "error",
         "indent": ["error", 4, {
