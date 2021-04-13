@@ -1,7 +1,7 @@
 import React from 'react';
 import { HashRouter, Redirect, Route, Switch } from 'react-router-dom';
 import { Spinner } from '@components';
-import Storage from '@utils/storage';
+import Storage from '../../../src/utils/LocalStorage';
 import Sidebar from './sidebar';
 import './style.scss';
 

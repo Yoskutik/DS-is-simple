@@ -1,20 +1,18 @@
-import React from 'react';
-import { Service } from 'typedi';
-import Storage from '@utils/storage';
-
-export const AppContext = React.createContext<AppViewModel>(null);
+import {LocalStorage, MyService} from '@utils';
+import {Service} from 'typedi';
 
 @Service()
 export default class AppViewModel {
-    a = 1;
+  a = 1;
 
-    log = () => {
-        console.log(123);
-    };
+  log = (): void => {
+    // console.log(this.service.test);
+  };
 
-    constructor() {
-        window.addEventListener('beforeunload', () => {
-            Storage.set(Storage.Keys.lastVisitedPage, window.location.hash.substr(1));
-        });
-    }
+  constructor(private service: MyService) {
+    window.addEventListener('beforeunload', () => {
+      LocalStorage.set('asdasd', window.location.hash.substr(1));
+    });
+    service.log();
+  }
 }

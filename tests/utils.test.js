@@ -1,5 +1,5 @@
 import { test, expect } from '@jest/globals';
-import Storage from '@utils/storage';
+import Storage from '../src/utils/LocalStorage';
 
 test('Storage keys', () => {
     const keys = Object.values(Storage.Keys);

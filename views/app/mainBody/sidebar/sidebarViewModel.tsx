@@ -1,6 +1,6 @@
 import { action, observable } from 'mobx';
 import React from 'react';
-import Storage from '@utils/storage';
+import Storage from '../../../../src/utils/LocalStorage';
 
 export const SidebarContext = React.createContext<Partial<SidebarViewModel>>(null);
 

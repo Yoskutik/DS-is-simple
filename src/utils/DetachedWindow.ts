@@ -1,6 +1,5 @@
+import { Constructable } from '@utils';
 import { extendObservable } from 'mobx';
-
-export type Constructable<T = any> = { new (...args: any[]): T };
 
 export type TDetachedWindowOptions = {
     closeOnUnload: boolean;
@@ -15,7 +14,7 @@ export interface IDetachedWindow<T> {
     log: (type: string, body: Record<string, any>) => void;
 }
 
-export const DetachedWindow = (options: TDetachedWindowOptions = defaultOptions) => <R extends Constructable>(Clazz: R): any => {
+export const DetachedWindow = (options: TDetachedWindowOptions = defaultOptions) => <R extends Constructable>(Clazz: R): R & { factoryData: any } => {
     const tmp = class extends Clazz {
         constructor(...args: any[]) {
             super(...args);

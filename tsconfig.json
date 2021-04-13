@@ -14,9 +14,12 @@
     "paths": {
       "@components": ["components"],
       "@components/icons": ["components/icons"],
-      "@utils/*": ["utils/*"],
+      "@utils/*": ["./src/utils/*"],
+      "@utils": ["./src/utils"],
       "@pages/*": ["views/pages/*"],
-      "@assets/*": ["assets/*"]
+      "@assets/*": ["assets/*"],
+      "@root/*": ["./*"],
+      "@mvvm": ["./src/mvvm"]
     }
   },
   "include": ["./**/*"],

@@ -42,9 +42,11 @@ module.exports = (env = {}, argv = {}) => {
             extensions: ['.tsx', '.ts', '.js'],
             alias: {
                 '@assets': path.resolve(__dirname, 'assets'),
-                '@utils': path.resolve(__dirname, 'utils'),
+                '@utils': path.resolve(__dirname, 'src', 'utils'),
                 '@components': path.resolve(__dirname, 'components'),
                 '@pages': path.resolve(__dirname, 'views', 'pages'),
+                '@mvvm': path.resolve(__dirname, 'src', 'mvvm'),
+                '@root': path.resolve(__dirname),
             },
         },
         module: {
